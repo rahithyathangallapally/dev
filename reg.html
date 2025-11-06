@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <title>Registration</title>
+     
+    </head>
+    <body>
+        <h1 align="center">Registration Form</h1>
+        <script type="text/javascript">
+            function formvalidation()
+        	{
+                    var uname=document.forms["myForm"]["fname"].value;
+        	        var sname=document.forms["myForm"]["sname"].value;
+        	        var email=document.forms["myForm"]["email"].value;
+        	        var password=document.forms["myForm"]["pword"].value;
+                    var password1=document.forms["myForm"]["pword1"].value;
+                	var phone=document.forms["myForm"]["phone"].value;
+            
+                	
+        	        if(uname==null || uname=="")
+        	        {
+        	            alert("first name can't be blank");    
+						return;  
+        	        }
+        	        if(sname==null || sname=="")
+        	        {
+        	            alert("last name can't be blank");
+						return;
+        	        }
+        	        if(email==null || email=="")
+        	        {
+        	            alert("email can't be blank");
+						return;
+        	        }
+        	        if(email.length>0)
+        	        {
+        	         	let eflag=false;
+            		    	for(i=0;i<email.length;i++)
+            		    	{
+								if(email.charAt(i)=="@") 
+								{ 
+					 				eflag=true;
+									break;
+								}
+							}
+							if(!(eflag)) 
+							{ 
+						    	alert("Please enter a valid Email ID"); 
+								return;			
+							}
+        	        }
+        	        if(password.length<8)
+        	        {
+        	            alert("password must be at least 8 characters long.");
+						return;
+        	        }
+                    if(password1!=password)
+                    {
+                        alert("password should be same.");
+                        return;
+                    }
+        	        
+        	        if(phone.length<=9)
+        	        {
+        	            	alert("Enter valid phno");
+							return;
+        	        }    
+                    flag=false;
+        	        for(i=0;i<myForm.gender.length;i++)
+        	        {
+        	        	if(myForm.gender[i].checked)
+						{
+        	        		flag=true;
+							break;
+						}
+        	        }
+        	        if(!(flag))
+        	        {
+        	        	alert("Please select gender");
+						return;
+					}
+                	alert("registered successfully.");
+                	
+            }
+        </script>
+        <form name="myForm">
+            <table cellpadding="5" cellspacing="5" bgcolor="lightblue" align="center">
+                <tr><td><label for="fname">First name:</label></td>
+                    <td><input type="text" name="fname" size=""></td></tr>
+
+                <tr><td><label for="sname">Last name:</label></td>
+                    <td><input type="text" name="sname" id="sname" size="" required></td></tr>
+                    
+                <tr><td><label for="dob">Date Of Birth:</label></td>
+                    <td><input type="date" name="Dob" id="dob" size="" required></td></tr>
+
+                <tr><td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email"  name="email" required></td></tr>
+        
+
+                <tr><td><label for="password">Password:</label></td>
+                    <td><input type="password" name="pword" size="" required></td></tr>   
+                
+                <tr><td><label for="password"> Re-Enter Password:</label></td>
+                    <td><input type="password" name="pword1" size="" required></td></tr>   
+
+                <tr><td><label for="phone">Phone no:</label></td>
+                    <td><input type="tel" name="phone"  size="" placeholder="+91" required></td></tr>   
+                
+                <tr><td><label for="gender">Gender:</label></td>
+                    <td><input type="radio" name="gender" size=""required>
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" size=""required>
+                        <label for="female">Female</label>
+                        <input type="radio" name="gender" size="" required>
+                        <label for="others">Others</label></td></tr>
+
+                <tr><td><label for="text">Address:</label></td>
+                    <td><textarea rows="5" cols="50" name="addr" id="add" required></textarea></td></tr>
+                
+                <tr><td><label for="state">State:</label></td>
+                        <td><input type="text" name="state" id="state" size="" required></td></tr>
+                
+                <tr><td><label for="city">City:</label></td>
+                    <td><input type="text" name="city" id="City" size="" required></td></tr>
+                
+                <tr><td>
+                    <input type="checkbox" id="cond" name="cond" value="cond" required>
+                        <label for="cond">I accept all the terms and conditions</label></td></tr>
+
+                <tr><td></td><td>
+                    <button type="submit" id="center"  onclick="formvalidation()">Login</button></td></tr>   
+    
+            </table>
+        </form>
+    </body>
+</html> 

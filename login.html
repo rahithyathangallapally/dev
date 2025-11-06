@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Login</title>
+        
+    </head>
+    <body>
+        <h1 align="center">Login Form</h1>
+        <script type="text/javascript">
+            function formvalidation()
+            {
+                var uname=document.forms["myForm"]["uname"].value;
+                var password=document.forms["myForm"]["password"].value;
+                if(uname==null || uname=="")
+                {
+                    alert("User name can't be blank");
+                    
+                }
+                else if(password.length<8)
+                {
+                    alert("password must be at least 8 characters long.");
+                }
+                alert("logged in successfully...");
+            }
+
+        </script>
+        <form name="myForm" action="connect.php" method="POST">
+            <table cellpadding="5" cellspacing="10" bgcolor="lightblue" align="center">
+                <tr><td><label for="username">User name:</label></td>
+                    <td><input type="text"  name="uname" id="uname" size="" required></td></tr>
+    
+                <tr><td><label for="password">Password:</label></td>
+                    <td><input type="password" name="pword" id="password" size="" required></td></tr>   
+
+                <tr>
+                    <td><input type="checkbox" id="remember" name="remember" size="" required>Remember me</td>
+                    
+                    <td><a href=file:///C:/Users/Dell/OneDrive/Desktop/html/forgot.html>forgot password?</a></td></tr>
+                <tr><td></td><td>
+                    <button type="submit" id="center" onclick="formvalidation()">Login</button></td></tr>
+                <tr>
+                    <td><p>Do you have an account?</p></td>
+                    <td><a href="./registration.html">registration</a></td></tr>
+            </table>
+        </form>
+
+    </body>
+</html>
